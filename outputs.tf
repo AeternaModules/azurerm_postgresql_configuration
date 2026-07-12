@@ -1,3 +1,7 @@
+output "postgresql_configurations_id" {
+  description = "Map of id values across all postgresql_configurations, keyed the same as var.postgresql_configurations"
+  value       = { for k, v in azurerm_postgresql_configuration.postgresql_configurations : k => v.id }
+}
 output "postgresql_configurations_name" {
   description = "Map of name values across all postgresql_configurations, keyed the same as var.postgresql_configurations"
   value       = { for k, v in azurerm_postgresql_configuration.postgresql_configurations : k => v.name }
